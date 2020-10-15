@@ -10,9 +10,7 @@ ToggleContext.displayName = 'ToggleContext'
 function useToggle(defaultValue = null) {
   const context = React.useContext(ToggleContext)
   if (!context) {
-    throw new Error(
-      'please use toggle context within a toglle context provider',
-    )
+    throw new Error('please use with a <Toggle/>')
   }
   return context
 }
@@ -38,7 +36,7 @@ function ToggleOff({children}) {
   return on ? null : children
 }
 
-function ToggleButton({...props}) {
+function ToggleButton(props) {
   const {on, toggle} = useToggle()
   return <Switch on={on} onClick={toggle} {...props} />
 }
